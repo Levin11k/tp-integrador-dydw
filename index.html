@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Cursada 2025 - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Organizador de Cursada 2025</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" class="active" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('avisos')">Avisos</a></li>
+            <li><a href="#" onclick="showPage('sobre-mi')">Sobre mí</a></li>
+            <li><a href="#" onclick="showPage('materias-2025')">Materias 2025</a></li>
+            <li><a href="#" onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div class="container" id="home">
+        <h2>Materias en Curso</h2>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Materia</th>
+                        <th>Profesor</th>
+                        <th>Días</th>
+                        <th>Horario</th>
+                        <th>Aula</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Diseño y Desarrollo Web</td>
+                        <td>Prof. Patricia Litovicius</td>
+                        <td>Martes</td>
+                        <td>18.30 - 20.30</td>
+                        <td>Aula Virtual</td>
+                    </tr>
+                    <tr>
+                        <td>Programación II</td>
+                        <td>Prof. Martín López</td>
+                        <td>Jueves</td>
+                        <td>18.30 - 20.30</td>
+                        <td>Aula Virtual</td>
+                    </tr>
+                    <tr>
+                        <td>Bases de Datos</td>
+                        <td>Prof. Ana Rodríguez</td>
+                        <td>Viernes</td>
+                        <td>18:30 - 22:00</td>
+                        <td>Aula 201</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <h3>Próximos Exámenes</h3>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Materia</th>
+                        <th>Tipo</th>
+                        <th>Fecha</th>
+                        <th>Temas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Diseño y Desarrollo Web</td>
+                        <td>Parcial</td>
+                        <td>29/04/2025</td>
+                        <td>HTML, CSS y JavaScript</td>
+                    </tr>
+                    <tr>
+                        <td>Programación II</td>
+                        <td>Parcial</td>
+                        <td>28/04/2025</td>
+                        <td>POO, Abstracción y Patrones</td>
+                    </tr>
+                    <tr>
+                        <td>Bases de Datos</td>
+                        <td>Parcial</td>
+                        <td>23/04/2025</td>
+                        <td>Diseño e implementación DB</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- AVISOS PAGE -->
+    <div class="container" id="avisos" style="display: none;">
+        <h2>Avisos y Tareas Pendientes</h2>
+        
+        <div class="card subject">
+            <h3>Diseño y Desarrollo Web</h3>
+            <ul class="task-list">
+                <li>Entregar TP1: Maquetado HTML y CSS para el 20/04/2025</li>
+                <li>Revisar material sobre JavaScript para la clase del 22/04/2025</li>
+            </ul>
+        </div>
+        
+        <div class="card subject">
+            <h3>Programación II</h3>
+            <ul class="task-list">
+                <li>Entregar ejercicios de herencia y polimorfismo para el 25/04/2025</li>
+                <li>Avanzar con el proyecto final: módulo de autenticación</li>
+                <li>Revisar correcciones del último trabajo práctico</li>
+            </ul>
+        </div>
+        
+        <div class="card subject">
+            <h3>Bases de Datos</h3>
+            <ul class="task-list">
+                <li>Terminar diseño del modelo ER para el 18/04/2025</li>
+                <li>Practicar consultas SQL avanzadas</li>
+                <li>Leer capítulo sobre normalización de bases de datos</li>
+            </ul>
+        </div>
+    </div>
+    <!-- SOBRE MI PAGE -->
+    <div class="container" id="sobre-mi" style="display: none;">
+        <h2>Sobre Mí</h2>
+        <div class="card profile-card">
+            <img src="/api/placeholder/400/400" alt="Foto de perfil" class="profile-img">
+            <div class="profile-info">
+                <h3>Kevin Mediña</h3>
+                <p><strong>Carrera:</strong> Licenciatura en Gestión de Tecnologías de la Información</p>
+                <p><strong>Universidad:</strong> Universidad Argentina de la Empresa</p>
+                <p><strong>Año de cursada:</strong> 1er año</p>
+                <p><strong>Sobre mí:</strong> Soy estudiante de Licenciatura en sistemas con gran interés en el desarrollo web y la experiencia de usuario. Me apasiona crear soluciones innovadoras y accesibles que resuelvan problemas reales. Actualmente estoy enfocada en aprender frameworks modernos de JavaScript y profundizar mis conocimientos en bases de datos. </p>
+            </div>
+        </div>
+        
+        <h3>Habilidades</h3>
+        <div class="card">
+            <ul>
+                <li><strong>Lenguajes de programación:</strong> Java, Python, JavaScript, PHP</li>
+                <li><strong>Desarrollo Web:</strong> HTML5, CSS3, Bootstrap, React</li>
+                <li><strong>Bases de datos:</strong> MySQL, MongoDB</li>
+                <li><strong>Herramientas:</strong> Git, VS Code, Docker, Figma</li>
+                <li><strong>Idiomas:</strong> Español (nativo), Inglés (avanzado), Portugués (básico)</li>
+            </ul>
+        </div>
+        
+        <h3>Objetivos Académicos</h3>
+        <div class="card">
+            <p>Mi principal objetivo es completar mi carrera con un sólido proyecto final que integre tecnologías web modernas con aspectos de inteligencia artificial. Me interesa especialmente profundizar en el desarrollo fullstack y la arquitectura de aplicaciones. </p>
+        </div>
+    </div>
+
+    <!-- MATERIAS 2025 PAGE -->
+    <div class="container" id="materias-2025" style="display: none;">
+        <h2>Materias 2025</h2>
+        <div class="card">
+            <h3>Primer Cuatrimestre</h3>
+            <ul>
+                <li><a href="#" onclick="showMateria('disenio-desarrollo-web')"><strong>Diseño y Desarrollo Web</strong></a></li>
+                <li>Programación II</li>
+                <li>Bases de Datos</li>
+            </ul>
+            
+
+        </div>
+        
+        <!-- Página de Diseño y Desarrollo Web -->
+        <div id="disenio-desarrollo-web" style="display: none;">
+            <div class="card">
+                <h3>Diseño y Desarrollo Web</h3>
+                <p><strong>Profesor:</strong> Patricia Vitolicius</p>
+                <p><strong>Días y horarios:</strong> Martes de 18.30 a 20.30</p>
+                <p><strong>Aula:</strong> Virtual</p>
+                <p><strong>Descripción:</strong> Esta materia aborda los fundamentos del desarrollo web, incluyendo HTML, CSS y JavaScript. Se estudian técnicas de diseño responsivo, accesibilidad web y frameworks modernos. Los estudiantes aprenderán a crear sitios web completos con interfaces atractivas y funcionales.</p>
+                
+                <h4>Unidades temáticas</h4>
+                <ol>
+                    <li>Fundamentos de HTML5 y semántica web</li>
+                    <li>CSS3 avanzado y preprocesadores (SASS, LESS)</li>
+                    <li>Diseño responsivo y mobile first</li>
+                    <li>JavaScript y manipulación del DOM</li>
+                </ol>
+                
+                <button onclick="backToMaterias()">Volver a la lista de materias</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACTO PAGE -->
+    <div class="container" id="contacto" style="display: none;">
+        <h2>Contacto</h2>
+        <div class="card">
+            <p>¿Tienes alguna consulta sobre mis materias o quieres coordinar un grupo de estudio? Completa el siguiente formulario y me pondré en contacto contigo a la brevedad.</p>
+            <form id="contact-form">
+                <div>
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                
+                <div>
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+                
+                <div>
+                    <label for="asunto">Asunto:</label>
+                    <select id="asunto" name="asunto" required>
+                        <option value="">Selecciona una opción</option>
+                        <option value="consulta">Consulta sobre materias</option>
+                        <option value="grupo">Formar grupo de estudio</option>
+                        <option value="notas">Compartir apuntes/notas</option>
+                        <option value="proyecto">Colaborar en proyecto</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="materia">Materia relacionada:</label>
+                    <select id="materia" name="materia">
+                        <option value="">Selecciona una opción</option>
+                        <option value="disenio">Diseño y Desarrollo Web</option>
+                        <option value="programacion">Programación II</option>
+                        <option value="bases">Bases de Datos</option>
+                        <option value="ninguna">Ninguna en particular</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                
+                <div>
+                    <button type="submit">Enviar mensaje</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Organizador de Cursada | Desarrollado para Diseño y Desarrollo Web</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Ocultar todas las páginas
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('avisos').style.display = 'none';
+            document.getElementById('sobre-mi').style.display = 'none';
+            document.getElementById('materias-2025').style.display = 'none';
+            document.getElementById('contacto').style.display = 'none';
+            
+            // Restablecer la página de materias si estaba en una materia específica
+            if (document.getElementById('disenio-desarrollo-web')) {
+                document.getElementById('disenio-desarrollo-web').style.display = 'none';
+            }
+            
+            // Mostrar la página seleccionada
+            document.getElementById(pageId).style.display = 'block';
+            
+            // Actualizar clase activa en el menú
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('onclick').includes(pageId)) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        function showMateria(materiaId) {
+            // Ocultar lista de materias
+            const children = document.getElementById('materias-2025').children;
+            for (let i = 0; i < children.length; i++) {
+                if (children[i].id !== materiaId) {
+                    children[i].style.display = 'none';
+                }
+            }
+            
+            // Mostrar página de la materia
+            document.getElementById(materiaId).style.display = 'block';
+        }
+        
+        function backToMaterias() {
+            // Ocultar página de materia específica
+            document.getElementById('disenio-desarrollo-web').style.display = 'none';
+            
+            // Mostrar lista de materias
+            const children = document.getElementById('materias-2025').children;
+            for (let i = 0; i < children.length; i++) {
+                if (children[i].id !== 'disenio-desarrollo-web') {
+                    children[i].style.display = 'block';
+                }
+            }
+        }
+        
+        // Manejar envío del formulario
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Formulario enviado con éxito! Te contactaré pronto.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
