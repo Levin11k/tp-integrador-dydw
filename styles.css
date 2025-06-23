@@ -161,6 +161,27 @@ footer {
 }
 
 .active {
-    color: #f39c12;
+    color: #f39c12 !important;
     border-bottom: 2px solid #f39c12;
+}
+
+/* Estilos para las materias */
+.materia-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.materia-link a {
+    color: #4a6fa5;
+    text-decoration: none;
+}
+
+.materia-link a:hover {
+    text-decoration: underline;
+}
+
+.external-link {
+    font-size: 1.2em;
+    text-decoration: none;
 }

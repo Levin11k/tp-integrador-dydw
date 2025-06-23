@@ -124,6 +124,7 @@
             </ul>
         </div>
     </div>
+
     <!-- SOBRE MI PAGE -->
     <div class="container" id="sobre-mi" style="display: none;">
         <h2>Sobre Mí</h2>
@@ -158,36 +159,39 @@
     <!-- MATERIAS 2025 PAGE -->
     <div class="container" id="materias-2025" style="display: none;">
         <h2>Materias 2025</h2>
-        <div class="card">
+        
+        <!-- Lista principal de materias -->
+        <div class="card" id="materias-list">
             <h3>Primer Cuatrimestre</h3>
             <ul>
-                <li><a href="https://virtualbsp.uade.edu.ar/d2l/home/43347" target="_blank" onclick="showMateria('disenio-desarrollo-web')"><strong>Diseño y Desarrollo Web</strong></a></li>
-                <li>Programación II</li>
-                <li>Bases de Datos</li>
+                <li class="materia-link">
+                    <a href="#" onclick="showMateria('disenio-desarrollo-web', event)">
+                        <strong>Diseño y Desarrollo Web</strong>
+                    </a>
+                    <a href="https://virtualbsp.uade.edu.ar/d2l/home/43347" target="_blank" class="external-link" title="Ir al aula virtual externa">🌐</a>
+                </li>
+                <li><strong>Programación II</strong></li>
+                <li><strong>Bases de Datos</strong></li>
             </ul>
-            
-
         </div>
-        
+
         <!-- Página de Diseño y Desarrollo Web -->
-        <div id="disenio-desarrollo-web" style="display: none;">
-            <div class="card">
-                <h3>Diseño y Desarrollo Web</h3>
-                <p><strong>Profesor:</strong> Patricia Vitolicius</p>
-                <p><strong>Días y horarios:</strong> Martes de 18.30 a 20.30</p>
-                <p><strong>Aula:</strong> Virtual</p>
-                <p><strong>Descripción:</strong> Esta materia aborda los fundamentos del desarrollo web, incluyendo HTML, CSS y JavaScript. Se estudian técnicas de diseño responsivo, accesibilidad web y frameworks modernos. Los estudiantes aprenderán a crear sitios web completos con interfaces atractivas y funcionales.</p>
-                
-                <h4>Unidades temáticas</h4>
-                <ol>
-                    <li>Fundamentos de HTML5 y semántica web</li>
-                    <li>CSS3 avanzado y preprocesadores (SASS, LESS)</li>
-                    <li>Diseño responsivo y mobile first</li>
-                    <li>JavaScript y manipulación del DOM</li>
-                </ol>
-                
-                <button onclick="backToMaterias()">Volver a la lista de materias</button>
-            </div>
+        <div class="card" id="disenio-desarrollo-web" style="display: none;">
+            <h3>Diseño y Desarrollo Web</h3>
+            <p><strong>Profesor:</strong> Patricia Vitolicius</p>
+            <p><strong>Días y horarios:</strong> Martes de 18.30 a 20.30</p>
+            <p><strong>Aula:</strong> Virtual</p>
+            <p><strong>Descripción:</strong> Esta materia aborda los fundamentos del desarrollo web, incluyendo HTML, CSS y JavaScript. Se estudian técnicas de diseño responsivo, accesibilidad web y frameworks modernos.</p>
+            
+            <h4>Unidades temáticas</h4>
+            <ol>
+                <li>Fundamentos de HTML5 y semántica web</li>
+                <li>CSS3 avanzado y preprocesadores (SASS, LESS)</li>
+                <li>Diseño responsivo y mobile first</li>
+                <li>JavaScript y manipulación del DOM</li>
+            </ol>
+            
+            <button onclick="backToMaterias()">Volver a la lista de materias</button>
         </div>
     </div>
 
@@ -251,64 +255,80 @@
         <p>&copy; 2025 Organizador de Cursada | Desarrollado para Diseño y Desarrollo Web</p>
     </footer>
 
+    <!-- SCRIPTS -->
     <script>
-        function showPage(pageId) {
-            // Ocultar todas las páginas
-            document.getElementById('home').style.display = 'none';
-            document.getElementById('avisos').style.display = 'none';
-            document.getElementById('sobre-mi').style.display = 'none';
-            document.getElementById('materias-2025').style.display = 'none';
-            document.getElementById('contacto').style.display = 'none';
+        function showPage(pageId, event) {
+            if (event) event.preventDefault();
             
-            // Restablecer la página de materias si estaba en una materia específica
-            if (document.getElementById('disenio-desarrollo-web')) {
-                document.getElementById('disenio-desarrollo-web').style.display = 'none';
+            // Lista de todas las páginas principales
+            const pages = ['home', 'avisos', 'sobre-mi', 'materias-2025', 'contacto'];
+            
+            // Ocultar todas las páginas principales
+            pages.forEach(p => {
+                const el = document.getElementById(p);
+                if (el) el.style.display = 'none';
+            });
+
+            // Si estamos en materias-2025, asegurarse de mostrar la lista principal
+            if (pageId === 'materias-2025') {
+                // Mostrar la lista principal de materias
+                const materiasList = document.getElementById('materias-list');
+                if (materiasList) materiasList.style.display = 'block';
+                
+                // Ocultar detalles de materias específicas
+                const materiaDetail = document.getElementById('disenio-desarrollo-web');
+                if (materiaDetail) materiaDetail.style.display = 'none';
             }
-            
+
             // Mostrar la página seleccionada
-            document.getElementById(pageId).style.display = 'block';
-            
-            // Actualizar clase activa en el menú
+            const page = document.getElementById(pageId);
+            if (page) page.style.display = 'block';
+
+            // Actualizar navegación activa
             const links = document.querySelectorAll('nav a');
             links.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('onclick').includes(pageId)) {
-                    link.classList.add('active');
-                }
             });
-        }
-        
-        function showMateria(materiaId) {
-            // Ocultar lista de materias
-            const children = document.getElementById('materias-2025').children;
-            for (let i = 0; i < children.length; i++) {
-                if (children[i].id !== materiaId) {
-                    children[i].style.display = 'none';
-                }
-            }
             
-            // Mostrar página de la materia
-            document.getElementById(materiaId).style.display = 'block';
+            // Encontrar y activar el enlace correcto
+            const activeLink = document.querySelector(`nav a[onclick*="${pageId}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
         }
-        
+
+        function showMateria(materiaId, event) {
+            if (event) event.preventDefault();
+
+            // Ocultar la lista principal de materias
+            const materiasList = document.getElementById('materias-list');
+            if (materiasList) materiasList.style.display = 'none';
+
+            // Mostrar el detalle de la materia específica
+            const materia = document.getElementById(materiaId);
+            if (materia) materia.style.display = 'block';
+        }
+
         function backToMaterias() {
-            // Ocultar página de materia específica
-            document.getElementById('disenio-desarrollo-web').style.display = 'none';
-            
-            // Mostrar lista de materias
-            const children = document.getElementById('materias-2025').children;
-            for (let i = 0; i < children.length; i++) {
-                if (children[i].id !== 'disenio-desarrollo-web') {
-                    children[i].style.display = 'block';
-                }
-            }
+            // Ocultar detalles de materias específicas
+            const materiaDetail = document.getElementById('disenio-desarrollo-web');
+            if (materiaDetail) materiaDetail.style.display = 'none';
+
+            // Mostrar la lista principal de materias
+            const materiasList = document.getElementById('materias-list');
+            if (materiasList) materiasList.style.display = 'block';
         }
-        
+
         // Manejar envío del formulario
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('¡Formulario enviado con éxito! Te contactaré pronto.');
-            this.reset();
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('¡Formulario enviado con éxito! Te contactaré pronto.');
+                    this.reset();
+                });
+            }
         });
     </script>
 </body>
